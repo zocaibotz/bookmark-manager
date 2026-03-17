@@ -1,31 +1,35 @@
-Security scan report
-Generated at: 2026-03-17T10:43:34Z
-Issue: ZOC-79
-Branch: ZOC-79
+# Security Scan Report - ZOC-79
+Generated: 2026-03-17 UTC
 
-=== semgrep ===
-               
-               
-┌─────────────┐
-│ Scan Status │
-└─────────────┘
-  Scanning 6 files tracked by git with 1063 Code rules:
-  Scanning 6 files with 47 <multilang> rules.
-                
-                
-┌──────────────┐
-│ Scan Summary │
-└──────────────┘
-✅ Scan completed successfully.
- • Findings: 0 (0 blocking)
- • Rules run: 47
- • Targets scanned: 6
- • Parsed lines: ~100.0%
- • Scan was limited to files tracked by git
- • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
-Ran 47 rules on 6 files: 0 findings.
-(need more rules? `semgrep login` for additional free Semgrep Registry rules)
+## Scope
+- Repository: bookmark-manager
+- Branch: ZOC-79
+- Checks: SAST + dependency audit + targeted verifier run
 
-If Semgrep missed a finding, please send us feedback to let us know!
-See https://semgrep.dev/docs/reporting-false-negatives/
+## 1) SAST (Semgrep)
+Command:
+`semgrep --config auto --error --json .`
 
+Result:
+- Scan completed successfully
+- Rules run: 290
+- Findings: 0
+- High/Critical findings: 0
+
+## 2) Dependency Audit (pip-audit)
+Command:
+`python3 -m pip_audit --progress-spinner off --format json`
+
+Result:
+- "No known vulnerabilities found"
+- High/Critical findings: 0
+
+## 3) Security Behavior Check (identity policy)
+Command:
+`python3 tools/git_identity.py --name "Zi" --email "zi@example.com" --domain example.com`
+
+Result:
+- `Git identity verification passed.`
+
+## Remediation Summary
+No High/Critical issues were detected; no remediation required.
