@@ -1,0 +1,28 @@
+# ZOC-85 Security Scan Report
+
+Date (UTC): 2026-03-18
+Branch: ZOC-85
+
+## Commands Executed
+1. `semgrep --config=auto .`
+2. `npm audit --omit=dev`
+3. `npm audit`
+
+## Results
+### 1) Semgrep (SAST)
+- Status: Completed successfully
+- Rules run: 220
+- Targets scanned: 11 tracked files
+- Findings: **0** (0 blocking)
+- High/Critical findings: **0**
+
+### 2) npm audit --omit=dev
+- Vulnerabilities found: **0**
+- High/Critical findings: **0**
+
+### 3) npm audit (all dependencies)
+- Vulnerabilities found: **0**
+- High/Critical findings: **0**
+
+## Remediation
+No High/Critical findings detected; no remediation required.

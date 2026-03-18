@@ -1,0 +1,24 @@
+Run swarm:
+Requirement: Integration Testing - Write Playwright E2E tests covering BDD user journeys: adding a bookmark, viewing bookmarks, searching bookmarks, deleting a bookmark.
+
+**Acceptance Criteria:**
+
+* Playwright tests pass for: User can add a new bookmark and see it in list.
+* User can search for a bookmark by title and see filtered results.
+* User can delete a bookmark and confirm it is removed.
+* All tests run against the full application stack.
+Mode: build
+Constraints:
+  - MANDATORY PIPELINE: SDD -> TDD -> Implement -> Security Scan -> Critic Review.
+  - PLANNER: MUST generate `docs/spec/ZOC-85.md`.
+  - CODER: MUST write failing tests first (Red), then passing tests (Green), with test logs in output.
+  - SECURITY: MUST run local SAST/dependency checks and output `reports/security_scan.txt`; remediate High/Critical findings.
+  - CWD: Strictly locked to /home/claw-admin/.openclaw/workspace/projects/symphony/ZOC-85/repo.
+  - EXECUTION DISCIPLINE: Do the actual file edits first. Do NOT return status-only messages like "started"/"launched" without producing artifacts.
+Hard Output Contract (required before completion):
+  1) `docs/spec/ZOC-85.md`
+  2) `reports/security_scan.txt`
+  3) For Architect tickets: `docs/architecture/SYSTEM_DESIGN.md` and `docs/architecture/API_CONTRACTS.md`
+  4) Git commits on branch `ZOC-85`
+  5) PR creation via `gh pr create` and PR URL
+  - If unable to satisfy all required outputs, STOP and return explicit failure reason.
