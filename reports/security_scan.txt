@@ -1,31 +1,28 @@
-Security scan report
-Generated at: 2026-03-18T08:37:16Z
-Issue: ZOC-85
+# ZOC-85 Security Scan Report
+
+Date (UTC): 2026-03-18
 Branch: ZOC-85
 
-=== semgrep ===
-               
-               
-┌─────────────┐
-│ Scan Status │
-└─────────────┘
-  Scanning 4 files tracked by git with 1063 Code rules:
-  Scanning 4 files with 47 <multilang> rules.
-                
-                
-┌──────────────┐
-│ Scan Summary │
-└──────────────┘
-✅ Scan completed successfully.
- • Findings: 0 (0 blocking)
- • Rules run: 47
- • Targets scanned: 4
- • Parsed lines: ~100.0%
- • Scan was limited to files tracked by git
- • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
-Ran 47 rules on 4 files: 0 findings.
-(need more rules? `semgrep login` for additional free Semgrep Registry rules)
+## Commands Executed
+1. `semgrep --config=auto .`
+2. `npm audit --omit=dev`
+3. `npm audit`
 
-If Semgrep missed a finding, please send us feedback to let us know!
-See https://semgrep.dev/docs/reporting-false-negatives/
+## Results
+### 1) Semgrep (SAST)
+- Status: Completed successfully
+- Rules run: 220
+- Targets scanned: 11 tracked files
+- Findings: **0** (0 blocking)
+- High/Critical findings: **0**
 
+### 2) npm audit --omit=dev
+- Vulnerabilities found: **0**
+- High/Critical findings: **0**
+
+### 3) npm audit (all dependencies)
+- Vulnerabilities found: **0**
+- High/Critical findings: **0**
+
+## Remediation
+No High/Critical findings detected; no remediation required.
