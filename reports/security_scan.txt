@@ -1,31 +1,25 @@
-Security scan report
-Generated at: 2026-03-18T08:37:51Z
-Issue: ZOC-84
-Branch: ZOC-84
+# Security Scan Report - ZOC-84
 
-=== semgrep ===
-               
-               
-┌─────────────┐
-│ Scan Status │
-└─────────────┘
-  Scanning 4 files tracked by git with 1063 Code rules:
-  Scanning 4 files with 47 <multilang> rules.
-                
-                
-┌──────────────┐
-│ Scan Summary │
-└──────────────┘
-✅ Scan completed successfully.
- • Findings: 0 (0 blocking)
- • Rules run: 47
- • Targets scanned: 4
- • Parsed lines: ~100.0%
- • Scan was limited to files tracked by git
- • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
-Ran 47 rules on 4 files: 0 findings.
-(need more rules? `semgrep login` for additional free Semgrep Registry rules)
+Date (UTC): 2026-03-18
+Repository: /home/claw-admin/.openclaw/workspace/projects/symphony/ZOC-84/repo
 
-If Semgrep missed a finding, please send us feedback to let us know!
-See https://semgrep.dev/docs/reporting-false-negatives/
+## Commands Run
 
+1) Dependency vulnerability scan
+- Command: `npm audit --audit-level=high`
+- Result: `found 0 vulnerabilities`
+- High/Critical findings: 0
+
+2) Local static analysis (lint baseline)
+- Command: `npm run lint`
+- Result: Completed with no errors
+
+## Remediation Summary
+- No High/Critical dependency vulnerabilities were found; no dependency remediation required.
+- Implemented UI safety protections:
+  - Escaped dynamic HTML content before render.
+  - Restricted URL validation to `http`/`https`.
+  - Added `rel="noopener noreferrer"` on outbound links.
+
+## Final Security Status
+PASS - No High/Critical findings detected in local dependency/security checks.
