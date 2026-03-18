@@ -1,0 +1,35 @@
+# Security Scan Report - ZOC-83
+
+Date (UTC): 2026-03-18
+Branch: ZOC-83
+Repository: bookmark-manager
+
+## 1) SAST - Semgrep
+Command:
+`semgrep --config auto --error --json . > /tmp/zoc83-semgrep.json`
+
+Result summary:
+- Rules run: 230
+- Files scanned: 27 tracked files
+- Findings: 0
+- Blocking findings: 0
+
+Evidence:
+- Parsed with `jq '.results | length' /tmp/zoc83-semgrep.json`
+- Output: `0`
+
+## 2) Dependency vulnerabilities - npm audit
+Command:
+`npm audit --audit-level=high`
+
+Result summary:
+- High vulnerabilities: 0
+- Critical vulnerabilities: 0
+- Overall: `found 0 vulnerabilities`
+
+## Remediation actions
+- No High/Critical issues were detected.
+- No remediation required.
+
+## Final security status
+PASS - No High/Critical findings remain.
